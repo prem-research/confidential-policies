@@ -1,0 +1,14 @@
+[
+    {
+        "module": "nvidia",
+        "policy": "./nvidia/main.rego",
+        "data": []
+    },
+    {
+        "module": "tdx",
+        "policy": "./tdx/policy.rego",
+        "data": [
+            "./tdx/data.json"
+        ]
+    }
+]
