@@ -3,7 +3,7 @@ package nvidia
 import future.keywords.every
 default allow := false
 
-allow {
+allow if {
     count(input) > 0
     every claim in input {
         validate_claim_by_device_type(claim)
