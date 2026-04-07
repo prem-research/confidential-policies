@@ -11,8 +11,8 @@ allow if {
     validate_overall(input.overall_claims)
 
     # validate every gpu claim independently
-    every claim in input.gpu_claims {
-        validate_claim_by_device_type(claim)
+    every key, val in input.gpu_claims {
+        validate_claim_by_device_type(val)
     }
 }
 
