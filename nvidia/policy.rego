@@ -17,7 +17,7 @@ allow if {
 }
 
 validate_overall(overall) if {
-	overall["x-nvidia-overall-att-result"] == false
+	overall["x-nvidia-overall-att-result"] == true
 }
 
 validate_claim_by_device_type(claim) if {
