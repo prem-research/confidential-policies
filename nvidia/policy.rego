@@ -4,10 +4,20 @@ import future.keywords.every
 default allow := false
 
 allow if {
-    count(input) > 0
-    every claim in input {
+	# attestation with no gpu claims? no can do
+	count(input.gpu_claims) > 0
+
+    # validate overall claims
+    validate_overall(input.overall_claims)
+
+    # validate every gpu claim independently
+    every claim in input.gpu_claims {
         validate_claim_by_device_type(claim)
     }
+}
+
+validate_overall(overall) if {
+	overall["x-nvidia-overall-att-result"] == true
 }
 
 validate_claim_by_device_type(claim) if {
