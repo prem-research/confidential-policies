@@ -4,14 +4,14 @@ import future.keywords.every
 default allow := false
 
 allow if {
-	# attestation with no gpu claims? no can do
-	count(input.gpu_claims) > 0
+    # attestation with no gpu claims? no can do
+    count(input.gpu_claims) > 0
 
     # validate overall claims
     validate_overall(input.overall_claims)
 
     # validate every gpu claim independently
-    every key, val in input.gpu_claims {
+    every _, val in input.gpu_claims {
         validate_gpu_claims(val)
     }
 }
