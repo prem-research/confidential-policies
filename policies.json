@@ -1,7 +1,8 @@
 {
     "policies": [
         "/nvidia/policy.rego",
-        "/sev/policy.rego"
+        "/sev/policy.rego",
+        "/tdx/policy.rego"
     ],
     "data": []
 }
